@@ -1,13 +1,26 @@
-<!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="search-area">
+    <input bindinput='inputing' placeholder='请输入关键字' value="{{value}}"></input>
+    <button type="primary" size="mini" bindtap='bindSearch' loading="{{loading}}">搜索</button>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <view class="songlist">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class="songitem">
+        <view url="/pages/play/play" class="song-play" bindtap="getId" data-id="{{item.songid}}">
+          <image src="/images/play.png"></image>
+
+        </view>
+      
+        <view url="/pages/play/play" class="song-detail" bindtap="getId" data-id="{{item.songid}}">
+          <view class="song-title">{{item.songname}}-{{item.singername}}</view>
+          <view class="song-subtitle"> {{item.albumname}}</view>
+        </view>
 </view>
+    </block>
+
+  </view>
+
+  <loading hidden="{{!loading}}">
+    正在搜索...
+  </loading>
+  </view>

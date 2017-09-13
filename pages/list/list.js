@@ -22,6 +22,7 @@ Page({
     // console.log(e);
     let Id = e.currentTarget.dataset.id;
     app.globalData.songId = Id;
+    app.globalData.switchSong = true;
     console.log(app.globalData.songId);
     wx.switchTab({
       url: '../play/play'

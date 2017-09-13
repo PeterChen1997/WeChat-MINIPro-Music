@@ -15,7 +15,7 @@
   "tabBar":{
     "color":"#818181",
     "backgroundColor":"white",
-    "selectedColor":"green",
+    "selectedColor":"#458B00",
     "list": [{
       "pagePath":"pages/index/index",
       "text":"音乐列表",

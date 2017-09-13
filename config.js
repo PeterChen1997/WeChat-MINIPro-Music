@@ -1,5 +1,5 @@
-(function(module) {
-  let exports = module.exports={};
+(function (module) {
+  let exports = module.exports = {};
   //接口ID
   let appid = 45938;
   //接口密钥
@@ -12,13 +12,12 @@
   let searchByNameUrl = "https://route.showapi.com/213-1" + param;
   let searchByIdUrl = "https://route.showapi.com/213-2" + param;
 
-  //console.log(hotUrl);
 
   module.exports = {
     config: {
       hotUrl: hotUrl,
-      searchByNameUrl:searchByNameUrl,
-      searchByIdUrl:searchByIdUrl
+      searchByNameUrl: searchByNameUrl,
+      searchByIdUrl: searchByIdUrl
     }
-  }; 
-}) (module);
+  };
+})(module);

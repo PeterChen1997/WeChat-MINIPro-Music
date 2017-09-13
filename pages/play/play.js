@@ -17,7 +17,7 @@ Page({
   onLoad: function (options) {
 
         this.setData({
-          song: { songname: '未选择歌曲' }
+          song: { songname: '未选择歌曲' ,singername:'无'}
         });
   },
 
@@ -55,36 +55,42 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
-    let songId = app.globalData.songId;
-    console.log(songId);
     let self = this;
-    if (songId === undefined) {
-      let curSong = wx.getStorageSync('curSong') || [];
 
-      if (curSong === undefined) {
-        let song = { songname: '未选择歌曲' };
+    if (app.globalData.switchSong) {
+      if (self.data.isPlaying) {
+        wx.stopBackgroundAudio();
+
         this.setData({
-          song: song
-        });
-      } else {
-        this.setData({
-          song: curSong
-        });
+          isPlaying: !this.data.isPlaying
+        })
       }
-    } else {
+      app.globalData.switchSong = false;
+      let songId = app.globalData.songId;
+      console.log(songId);
+
+
       let songlist = wx.getStorageSync('songlist') || [];
       for (let i = 0; i < songlist.length; i++) {
         if (songlist[i].songid == songId) {
           this.setData({
-            song: songlist[i]
+            song: songlist[i],
+            isPlaying: !self.data.isPlaying
           });
           break;
         }
       }
       wx.setStorageSync('curSong', this.data.song);
-      
+      wx.playBackgroundAudio({
+        dataUrl: self.data.song.url || self.data.song.m4a,
+        success: function (res) { }
+      });
+
+
     }
 
+
+    
   },
 
   /**

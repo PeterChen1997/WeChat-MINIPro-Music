@@ -1,0 +1,47 @@
+.songlist {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+  font-size: 0.8rem;
+}
+
+.songitem{
+  height: 3rem;
+  line-height: 1.5rem;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding: 10rpx;
+  width: 100%;
+}
+
+.songitem:active{
+  background: #eee;
+}
+
+.song-play{
+  width: 10%;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.song-play image {
+  line-height: 3rem;
+  width: 50rpx;
+  height: 50rpx;
+  padding-top: 13px;
+  
+}
+
+.song-detail {
+  white-space: nowrap;
+  width: 90%;
+}
+
+.song-title {
+  font-size: 1rem;
+}
+
+.song-subtitle {
+  color: #555;
+}

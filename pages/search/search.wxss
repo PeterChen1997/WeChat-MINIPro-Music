@@ -1,21 +1,24 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.search-area {
+  background:#f4f4f4;
+  padding:1rem 0.5rem;
+  display:flex;
+  align-self: flex-end;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.search-area input {
+  background: #fff;
+  border-radius: 3px;
+  height: 2rem;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  font-size: 0.8rem;
+  width: 71%;
 }
 
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+.search-area button {
+  width: 23%;
+  height: 2rem;
+  line-height: 2rem;
+  
 }
